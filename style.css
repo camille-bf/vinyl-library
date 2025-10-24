@@ -104,7 +104,8 @@ main {
   }
 }
 
-.shelf:has(.vinyl:hover) .vinyl:not(:hover) {
+.shelf:has(.vinyl:hover) .vinyl:not(:hover),
+.shelf:has(.vinyl:hover) .title {
   filter: blur(3px) brightness(0.6);
 }
 
