@@ -1,0 +1,351 @@
+body {
+  margin: 0;
+  background-color: #16171b;
+  color: #f1f1f1;
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.shelf {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40px 40px 80px 40px;
+  gap: 5vw;
+  overflow-y: auto;
+}
+
+.title {
+  color: #ff8edf;
+  text-align: center;
+  margin-bottom: -80px;
+  font-weight: 700;
+}
+
+.vinyl-row {
+  border: none;
+  box-shadow: none;
+  padding-bottom: 0;
+  display: flex;
+  gap: 6vw;
+  margin-top: 6vw;
+  position: relative;
+  justify-content: center;
+}
+
+.vinyl::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 10px;
+  border-bottom: 7px solid #333;
+  border-radius: 3px;
+  box-shadow: 0 15px 5px -5px rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+.vinyl {
+  width: 12vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform 0.4s ease, filter 0.3s ease, scale 0.6s ease;
+  cursor: grab;
+  padding: 1vw;
+  border-radius: 10px;
+  transform-origin: center bottom;
+  z-index: 1;
+}
+
+.vinyl img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+}
+
+.vinyl:hover {
+  scale: 1.5;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(54, 54, 54);
+  transition: transform 0.4s ease, scale 0.6s ease;
+  z-index: 2;
+}
+
+.vinyl:active {
+  cursor: grabbing;
+}
+
+.vinyl:hover img {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.shelf:has(.vinyl:hover) .vinyl:not(:hover) {
+  filter: blur(3px) brightness(0.6);
+}
+
+.vinyl:hover .info {
+  opacity: 1;
+  transform: translateY(5px);
+}
+
+.info {
+  text-align: center;
+  margin-top: 10px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.info h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.info p {
+  margin: 2px 0 0 0;
+  color: #bbb;
+  font-size: 12px;
+}
+
+.info .date {
+  font-size: 11px;
+  color: #888;
+  font-style: italic;
+}
+
+.playcd .table {
+  width: 400px;
+  height: auto;
+  z-index: 1;
+}
+
+.table {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.playcd {
+  flex: 1;
+  position: relative;
+  border-left: 2px solid #242427;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #0f0f12;
+}
+
+.playcd.dragover {
+  background: #222;
+}
+
+.playcd p {
+  font-size: 16px;
+  color: #777;
+  text-align: center;
+}
+
+#drop-text {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 130px;
+  transition: all 0.4s ease;
+  z-index: 3;
+  left: 50%;
+  top: 40px;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+/*the text "now playing"*/
+#drop-text.playing {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffe1f6;
+}
+
+.vinyl-preview {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin-top: 20px;
+  animation: spin 6s linear infinite;
+  margin-bottom: 20px;
+  position: absolute;
+  z-index: 2;
+  bottom: 25%;
+}
+
+/* the styling of the progress bar */
+audio {
+  display: none;
+}
+
+.progress-bar {
+  background: #505050;
+  flex: 1;
+  height: 6px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0 0.5rem;
+
+  position: absolute;
+  bottom: 40px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 80%;
+  max-width: 50%;
+  cursor: pointer;
+}
+
+#progress-bar-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background-color: #ff8edf;
+}
+
+/* the text of my notes above the vinyl floating */
+.vinyl-text {
+  position: absolute;
+  bottom: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  text-align: center;
+  z-index: 4;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffbcec;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -100px) scale(1.2);
+  }
+}
+
+.float {
+  animation: floatUp 30s ease-out forwards;
+}
+
+/* the pop up window styling*/
+dialog {
+  background: rgb(15, 15, 18);
+  border-radius: 20px;
+  border: none;
+  padding: 5;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.introContent {
+  text-align: center;
+  background: #1e1f24;
+  color: #f1f1f1;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 142, 223, 0.15);
+  max-width: 50vw;
+  width: 90%;
+  animation: slideUp 0.8s ease forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.introContent h1 {
+  font-size: 1.8rem;
+  color: #ff8edf;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.introContent .notbow {
+  font-size: 1rem;
+  color: #ffe1f6;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+#dialogCloseButton {
+  background: #ff8edf;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+#dialogCloseButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 142, 223, 0.3);
+}
+
+button:focus {
+  outline: none;
+}
+
+.bow {
+  color: #fccaed;
+}

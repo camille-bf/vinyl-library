@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vinyl Store</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <dialog class="introDialog">
+        <div class="introContent">
+          <h1>Welcome to my vinyl library</h1>
+          <p class="notbow">
+            Hi there !<br />
+            This website is my personal library of the best tracks I’ve
+            collected. <br />
+            Each one is represented by a vinyl on the shelf. <br />
+            You can drag a vinyl and drop it onto the player to hear a sample
+            ✩°｡ ⋆⸜ 🎧✮ <br />
+            (be careful of the volume of your sound)
+          </p>
+          <p class="bow">
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡤⠤⠤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⡤⠤⢤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⢠⡤⣤⣤⡀⠀⠀⠀⠀⠀⢘⢇⠀⠀⠀⠘⠙⠢⣀⠀⠀⠀⠀⠀⢀⡖⠋⠁⠀⠀⠀⡼⠇⠀⠀⠀⠀⠀⢀⣤⣤⡦⡄⠀⠀⠀⠀
+            ⣴⢖⣄⠀⠸⣅⢀⣠⠇⠀⣴⢖⣄⠀⠾⠋⠁⠀⠀⠀⠀⠀⠹⣾⠏⠻⠋⢂⠟⠀⠀⠀⠀⠒⠀⠉⡗⠀⢰⣶⣦⠀⠘⢄⡀⣱⠟⠀⢠⣶⣦
+            ⠈⠛⠀⠀⠀⠈⠛⠁⠀⠀⠈⠛⠁⠀⠉⢲⠀⠀⠀⠀⠀⠀⣠⠟⢮⣄⡴⠛⣤⡀⠀⠀⠀⠀⠀⡞⠃⠀⠀⠛⠁⠀⠀⠀⠹⠋⠀⠀⠀⠙⠁
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠙⠤⡶⠋⠙⠁⠀⠀⠙⠁⠀⠈⠉⠙⢲⢴⠟⠙⠁⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+          </p>
+
+          <button id="dialogCloseButton" autofocus>
+            Discover my amazing music taste now
+          </button>
+        </div>
+      </dialog>
+      <section>
+        <h1>My vinyl library</h1>
+      </section>
+      <section class="shelf">
+        <div class="vinyl-row">
+          <div class="vinyl" data-audio="assets/sample1.mp3" draggable="true">
+            <img
+              src="https://i.pinimg.com/1200x/f5/b9/a3/f5b9a3665bec0b24a6d605079edbbdc0.jpg"
+            />
+            <div class="info">
+              <h3>TOMORROW X TOGETHER</h3>
+              <p>0X1=LOVESONG (I Know I Love You)</p>
+              <p class="date">2021</p>
+            </div>
+          </div>
+
+          <div class="vinyl" data-audio="assets/sample2.mp3" draggable="true">
+            <img
+              src="https://i.pinimg.com/736x/2c/bf/01/2cbf01b7f61c74e9747e0118da9c22b1.jpg"
+            />
+            <div class="info">
+              <h3>Miracle</h3>
+              <p>TOMORROW X TOGETHER</p>
+              <p class="date">2024</p>
+            </div>
+          </div>
+
+          <div class="vinyl" data-audio="assets/sample3.mp3" draggable="true">
+            <img
+              src="https://i.pinimg.com/1200x/c0/33/49/c0334988f88df93ba766a17e9a31f86f.jpg"
+            />
+            <div class="info">
+              <h3>Wildest Dreams</h3>
+              <p>Taylor Swift</p>
+              <p class="date">2014</p>
+            </div>
+          </div>
+        </div>
+        <div class="vinyl-row">
+          <div class="vinyl" data-audio="assets/sample4.mp3" draggable="true">
+            <img
+              src="https://i.pinimg.com/1200x/fd/6a/6e/fd6a6ecace742e03655ac52cb6950907.jpg"
+            />
+            <div class="info">
+              <h3>I AM</h3>
+              <p>IVE</p>
+              <p class="date">2023</p>
+            </div>
+          </div>
+
+          <div class="vinyl" data-audio="assets/sample5.mp3" draggable="true">
+            <img
+              src="https://i.pinimg.com/736x/33/52/3e/33523e658969476cb441fa5f063e692f.jpg"
+            />
+            <div class="info">
+              <h3>Social Path</h3>
+              <p>Stray Kids</p>
+              <p class="date">2023</p>
+            </div>
+          </div>
+
+          <div class="vinyl" data-audio="assets/sample6.mp3" draggable="true">
+            <img
+              src="https://i.pinimg.com/736x/56/09/75/560975fdec4ff836284d8b9599b25e32.jpg"
+            />
+            <div class="info">
+              <h3>Heavenly</h3>
+              <p>Cigarettes After Sex</p>
+              <p class="date">2019</p>
+            </div>
+          </div>
+        </div>
+        <div class="vinyl-row">
+          <div class="vinyl" data-audio="assets/sample7.mp3" draggable="true">
+            <img
+              src="https://i.pinimg.com/736x/76/c3/a7/76c3a7d7534683bed86ca54e8f2e6d4d.jpg"
+            />
+            <div class="info">
+              <h3>Sweater Weather</h3>
+              <p>The Neighbourhood</p>
+              <p class="date">2013</p>
+            </div>
+          </div>
+
+          <div class="vinyl" data-audio="assets/sample8.mp3" draggable="true">
+            <img
+              src="https://cdn-images.dzcdn.net/images/cover/1dd56fd8824492e1a5106c99a00a85ec/500x500-000000-80-0-0.jpg"
+            />
+            <div class="info">
+              <h3>Creep</h3>
+              <p>Radiohead</p>
+              <p class="date">2016</p>
+            </div>
+          </div>
+
+          <div class="vinyl" data-audio="assets/sample9.mp3" draggable="true">
+            <img
+              src="https://t2.genius.com/unsafe/516x516/https%3A%2F%2Fimages.genius.com%2F41fdf20665e8a111e3f780aca4401794.1000x1000x1.png"
+            />
+            <div class="info">
+              <h3>No doubt</h3>
+              <p>Enhypen</p>
+              <p class="date">2024</p>
+            </div>
+          </div>
+        </div>
+        <div class="vinyl-row">
+          <div class="vinyl" data-audio="assets/sample10.mp3" draggable="true">
+            <img
+              src="https://i.pinimg.com/736x/20/66/14/206614d32e0eeb102569fc117e71c84d.jpg"
+            />
+            <div class="info">
+              <h3>Silver light</h3>
+              <p>ATEEZ</p>
+              <p class="date">2023</p>
+            </div>
+          </div>
+
+          <div class="vinyl" data-audio="assets/sample11.mp3" draggable="true">
+            <img
+              src="https://i.pinimg.com/1200x/50/74/ed/5074edb39006b1553b13460ee8b47ced.jpg"
+            />
+            <div class="info">
+              <h3>S-Class</h3>
+              <p>Stray Kids</p>
+              <p class="date">2023</p>
+            </div>
+          </div>
+
+          <div class="vinyl" data-audio="assets/sample12.mp3" draggable="true">
+            <img
+              src="https://i.scdn.co/image/ab67616d0000b2736b864d9a09cbf6c704eba902"
+            />
+            <div class="info">
+              <h3>Young and Restless</h3>
+              <p>Siamés</p>
+              <p class="date">2020</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="playcd" id="playcd">
+        <p id="drop-text">Drag a vinyl here to play a sample !</p>
+        <div class="vinyl-text"></div>
+        <img src="assets/table.png" alt="table" class="table" />
+        <audio id="audioPlayer" controls></audio>
+        <div class="progress-bar">
+          <span id="progress-bar-fill"></span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
